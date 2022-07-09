@@ -1,12 +1,40 @@
-//Scripted
-node {
-		echo "Build"
+//Discriptive
 
-		echo "Test"
-
-		echo "IntegrationTest"
-
+pipeline {
+	agent any
+	stages {
+		stage ('Build'){
+			steps {
+				echo "Build"
+			}
+		}
+		stage ('Test'){
+			steps {
+				echo "Test"
+			}
+		}
+		stage ('ITest'){
+			steps {
+				echo "ITest"
+			}
+		}
+	}
 }
+
+
+
+
+
+
+// //Scripted
+// node {
+// 		echo "Build"
+
+// 		echo "Test"
+
+// 		echo "IntegrationTest"
+
+// }
 
 // node {
 // 	stage('Build') {
