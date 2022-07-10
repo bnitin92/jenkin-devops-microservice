@@ -4,6 +4,12 @@ pipeline {
 	agent any
 //	agent { docker { image 'maven:3.8.6'} }
 	// agent { docker { image 'node:18.5'} }
+
+	environment {
+		dockerHome = tool 'myDocker'
+		mavenHome = tool 'myMaven'
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+	}
 	stages {
 		stage ('Build'){
 			steps {
@@ -15,6 +21,7 @@ pipeline {
 				echo "Build no - $env.BUILD_NUMBER"
 				echo "Build id - $env.BUILD_ID"
 				echo "Build_tag - $env.BUILD_TAG"
+				echo "Build_url - $env.BUILD_URL"
 				echo "$env.JOB_NAME"
 			}
 		}
