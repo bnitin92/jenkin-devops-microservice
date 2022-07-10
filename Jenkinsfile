@@ -1,15 +1,21 @@
 //Discriptive
 
 pipeline {
-//	agent any
+	agent any
 //	agent { docker { image 'maven:3.8.6'} }
-	agent { docker { image 'node:18.5'} }
+	// agent { docker { image 'node:18.5'} }
 	stages {
 		stage ('Build'){
 			steps {
 //				sh "mvn --version"
-				sh "node --version"
+				// sh "node --version"
+
 				echo "Build"
+				echo "PATH - $PATH"
+				echo "Build no - $env.BUILD_NUMBER"
+				echo "Build id - $env.BUILD_ID"
+				echo "Build_tag - $env.BUILD_TAG"
+				echo "$env.JOB_NAME"
 			}
 		}
 		stage ('Test'){
